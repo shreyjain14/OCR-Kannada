@@ -36,6 +36,7 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 file_extension = ['jpg', 'jpe', 'jpeg', 'png', 'gif', 'svg', 'bmp']
 
 
+# Form
 class AIForm(FlaskForm):
     # question = StringField(validators=[InputRequired()])
     photo = FileField(validators=[FileAllowed(file_extension, 'Image only!'),
@@ -43,6 +44,7 @@ class AIForm(FlaskForm):
     submit = SubmitField('Upload')
 
 
+# Home
 @app.route('/', methods=['GET', 'POST'])
 def home():
     form = AIForm()
